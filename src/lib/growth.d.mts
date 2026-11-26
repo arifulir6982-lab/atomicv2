@@ -1,0 +1,13 @@
+export type Outcome = 'completed' | 'missed';
+export type RecordEntry = { date: string; outcome: Outcome };
+export type SeriesPoint = { date: string; index: number; outcome: Outcome | 'baseline' };
+export const BASE_INDEX: number;
+export const STORAGE_KEY: string;
+export function localDateKey(date?: Date): string;
+export function shiftDate(key: string, offset: number): string;
+export function validDateKey(value: unknown): boolean;
+export function normalizeRecords(value: unknown): RecordEntry[];
+export function recordToday(records: RecordEntry[], outcome: Outcome, day?: string): RecordEntry[];
+export function buildSeries(records: RecordEntry[]): SeriesPoint[];
+export function currentIndex(records: RecordEntry[]): number;
+export function streak(records: RecordEntry[], today?: string): number;
